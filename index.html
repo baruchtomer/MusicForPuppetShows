@@ -56,7 +56,8 @@
         .album-image {
             width: 100%;
             max-width: 400px;
-            height: auto;
+            height: 400px;
+            object-fit: cover;
             display: block;
             margin: 0 auto;
             transition: transform 0.3s ease;
@@ -188,9 +189,8 @@
                 font-size: clamp(20px, 6vw, 28px);
             }
             
-            .placeholder-image {
+            .album-image {
                 height: 300px;
-                font-size: 16px;
             }
             
             .countdown {
@@ -216,49 +216,25 @@
                 font-size: clamp(18px, 7vw, 24px);
             }
             
-            .placeholder-image {
+            .album-image {
                 height: 250px;
-                font-size: 14px;
             }
         }
         
         /* Pulse animation for engagement */
-        .container:hover {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            }
-            50% {
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            }
-            100% {
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            }
+        .image-container:hover .album-image {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="image-container">
-            <!-- Replace the src below with your actual image URL -->
-            <!-- <img src="your-album-cover.jpg" alt="Music for Puppet Shows Album Cover" class="album-image"> -->
-            
-            <!-- Placeholder until you add your image -->
-            <div class="placeholder-image">
-                <div>
-                    🎭<br>
-                    Music for Puppet Shows<br>
-                    <small>החלף בתמונת האלבום שלך</small>
-                </div>
-            </div>
+            <img src="Music for Puppet Shows cover.jpg" alt="Music for Puppet Shows Album Cover" class="album-image">
         </div>
         
         <h1 class="title">
-            האלבום Music for Puppet Shows יצא ב15.8.<br>
-            מוזמנים לבקר כאן שוב כשיצא כדי לשמוע אותו
+            האלבום יוצא ב15.8
         </h1>
         
         <div class="countdown-container">
