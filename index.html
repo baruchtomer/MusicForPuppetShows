@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תומר ברוך - מוזיקה לתאטרון בובות</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #B8860B;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .image-container {
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .album-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .album-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .placeholder-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #2c1810, #8B4513);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title {
+            font-size: clamp(28px, 6vw, 42px);
+            color: #2c1810;
+            font-weight: bold;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+        
+        .subtitle-main {
+            font-size: clamp(20px, 4vw, 28px);
+            color: #2c1810;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            animation: slideUp 1s ease-out 0.7s both;
+        }
+        
+        .subtitle-text {
+            font-size: clamp(16px, 3.5vw, 22px);
+            color: #4a3728;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            animation: slideUp 1s ease-out 0.9s both;
+        }
+        
+        .bandcamp-container {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            animation: slideUp 1s ease-out 1.1s both;
+        }
+        
+        .bandcamp-container iframe {
+            border-radius: 10px;
+        }
+        
+        .links-container {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: slideUp 1s ease-out 1.3s both;
+            align-items: flex-start;
+            direction: ltr;
+        }
+        
+        .music-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(44, 24, 16, 0.8);
+            color: #B8860B;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: clamp(16px, 3vw, 18px);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            justify-content: flex-start;
+            width: 100%;
+        }
+        
+        .music-link:hover {
+            background: rgba(44, 24, 16, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            color: #B8860B;
+            text-decoration: none;
+        }
+        
+        .music-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .subtitle {
+            font-size: clamp(16px, 3vw, 20px);
+            color: #4a3728;
+            margin-top: 20px;
+            opacity: 0.8;
+            animation: slideUp 1s ease-out 1s both;
+        }
+        
+        .countdown-container {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            animation: slideUp 1s ease-out 1.5s both;
+        }
+        
+        .countdown-title {
+            font-size: clamp(18px, 4vw, 24px);
+            color: #2c1810;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            direction: ltr;
+        }
+        
+        .countdown-item {
+            background: rgba(44, 24, 16, 0.8);
+            color: #B8860B;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 70px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .countdown-number {
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: clamp(12px, 2.5vw, 14px);
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .release-message {
+            font-size: clamp(20px, 4vw, 28px);
+            color: #2c1810;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            animation: celebration 2s ease-in-out infinite;
+        }
+        
+        @keyframes celebration {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .title {
+                font-size: clamp(22px, 7vw, 32px);
+            }
+            
+            .subtitle-main {
+                font-size: clamp(18px, 5vw, 24px);
+            }
+            
+            .subtitle-text {
+                font-size: clamp(14px, 4vw, 18px);
+            }
+            
+            .image-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .album-image {
+                height: 300px;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 12px 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 25px 15px;
+            }
+            
+            .title {
+                font-size: clamp(18px, 7vw, 24px);
+            }
+            
+            .image-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .album-image {
+                height: 250px;
+            }
+        }
+        
+        /* Pulse animation for engagement */
+        .image-container:hover .album-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="Music for Puppet Shows - cover.jpg" alt="Music for Puppet Shows Album Cover" class="album-image">
+        </div>
+        
+        <h1 class="title">
+            תומר ברוך -<br>
+            מוזיקה לתאטרון בובות
+        </h1>
+        
+        <div class="bandcamp-container">
+           <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1971720758/size=large/bgcol=333333/linkcol=e99708/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://tomerbaruch.bandcamp.com/album/music-for-puppet-shows">Music for Puppet Shows by Tomer Baruch</a></iframe>
+        </div>
+        
+        <div class="links-container">
+            <a href="https://open.spotify.com/album/1XXY5oBZVYV4cFD3nSVriO?si=2l-XhN3VQRaxDYtCN1q2Ow" class="music-link" target="_blank">
+                <svg class="music-icon" viewBox="0 0 24 24">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                Spotify
+            </a>
+            
+            <a href="https://tomerbaruch.bandcamp.com/album/music-for-puppet-shows" class="music-link" target="_blank">
+                <svg class="music-icon" viewBox="0 0 24 24">
+                    <path d="M0 18.75l7.437-13.5h16.563v13.5h-16.563l-7.437 13.5z"/>
+                </svg>
+                Bandcamp
+            </a>
+            
+            <a href="https://music.apple.com/il/album/music-for-puppet-shows/1829632203" class="music-link" target="_blank">
+                <svg class="music-icon" viewBox="0 0 24 24">
+                    <path d="M23.997 6.124c-.237-1.811-1.023-3.399-2.148-4.596C20.807.469 19.283-.201 17.573.024 16.398.186 15.25.628 14.111 1.256c-.746.41-1.468.945-2.145 1.584-.676-.639-1.399-1.174-2.145-1.584C8.683.628 7.535.186 6.36.024 4.65-.201 3.126.469 2.085 1.528.96 2.725.174 4.313-.063 6.124c-.213 1.615.057 3.26.784 4.849.727 1.589 1.911 3.12 3.542 4.589 1.631 1.469 3.711 2.877 6.236 4.221 2.525-1.344 4.605-2.752 6.236-4.221 1.631-1.469 2.815-3 3.542-4.589.727-1.589.997-3.234.784-4.849z"/>
+                </svg>
+                Apple Music
+            </a>
+            
+            <a href="https://www.youtube.com/watch?v=aUcyUY2CjR4&list=OLAK5uy_nTJhoysHAauf71V8qqnk2bFNYmI6K3JV8" class="music-link" target="_blank">
+                <svg class="music-icon" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube
+            </a>
+        </div>
+    </div>
+    </body>
+</html>
