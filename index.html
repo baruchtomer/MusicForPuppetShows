@@ -71,22 +71,6 @@
             transform: scale(1.05);
         }
         
-        .placeholder-image {
-            width: 100%;
-            max-width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #2c1810, #8B4513);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            color: white;
-            font-size: 18px;
-            text-align: center;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
-        }
-        
         .title {
             font-size: clamp(28px, 6vw, 42px);
             color: #2c1810;
@@ -104,14 +88,6 @@
             line-height: 1.4;
             margin-bottom: 10px;
             animation: slideUp 1s ease-out 0.7s both;
-        }
-        
-        .subtitle-text {
-            font-size: clamp(16px, 3.5vw, 22px);
-            color: #4a3728;
-            line-height: 1.4;
-            margin-bottom: 25px;
-            animation: slideUp 1s ease-out 0.9s both;
         }
         
         .bandcamp-container {
@@ -179,78 +155,38 @@
             }
         }
         
-        .subtitle {
-            font-size: clamp(16px, 3vw, 20px);
-            color: #4a3728;
-            margin-top: 20px;
-            opacity: 0.8;
-            animation: slideUp 1s ease-out 1s both;
-        }
-        
-        .countdown-container {
-            margin: 30px 0;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            animation: slideUp 1s ease-out 1.5s both;
-        }
-        
-        .countdown-title {
-            font-size: clamp(18px, 4vw, 24px);
-            color: #2c1810;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        
-        .countdown {
+        .acknowledgment-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            padding-right: 120px;
+            border-top: 2px solid rgba(44, 24, 16, 0.2);
+            animation: slideUp 1s ease-out 1.7s both;
             display: flex;
+            align-items: center;
+            text-align: left;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
+            flex-wrap: nowrap;
             direction: ltr;
         }
         
-        .countdown-item {
-            background: rgba(44, 24, 16, 0.8);
-            color: #B8860B;
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 70px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+        .acknowledgment-text {
+            font-size: clamp(13px, 2.5vw, 15px);
+            color: #4a3728;
+            line-height: 1.5;
+            margin: 0;
         }
         
-        .countdown-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .countdown-number {
-            font-size: clamp(24px, 5vw, 32px);
-            font-weight: bold;
-            display: block;
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: clamp(12px, 2.5vw, 14px);
-            margin-top: 5px;
+        .lottery-logo {
+            height: 60px;
+            width: auto;
             opacity: 0.9;
+            transition: opacity 0.3s ease;
+            vertical-align: middle;
         }
         
-        .release-message {
-            font-size: clamp(20px, 4vw, 28px);
-            color: #2c1810;
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            animation: celebration 2s ease-in-out infinite;
-        }
-        
-        @keyframes celebration {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .lottery-logo:hover {
+            opacity: 1;
         }
         
         /* Mobile optimizations */
@@ -269,10 +205,6 @@
                 font-size: clamp(18px, 5vw, 24px);
             }
             
-            .subtitle-text {
-                font-size: clamp(14px, 4vw, 18px);
-            }
-            
             .image-container {
                 width: 300px;
                 height: 300px;
@@ -282,13 +214,8 @@
                 height: 300px;
             }
             
-            .countdown {
-                gap: 10px;
-            }
-            
-            .countdown-item {
-                min-width: 60px;
-                padding: 12px 8px;
+            .lottery-logo {
+                height: 70px;
             }
         }
         
@@ -312,6 +239,10 @@
             
             .album-image {
                 height: 250px;
+            }
+            
+            .lottery-logo {
+                height: 60px;
             }
         }
         
@@ -355,7 +286,8 @@
             
             <a href="https://music.apple.com/il/album/music-for-puppet-shows/1829632203" class="music-link" target="_blank">
                 <svg class="music-icon" viewBox="0 0 24 24">
-                    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>                </svg>
+                    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                </svg>
                 Apple Music
             </a>
             
@@ -365,6 +297,13 @@
                 </svg>
                 YouTube
             </a>
+        </div>
+        
+        <div class="acknowledgment-section">
+            <img src="lottery-transparent.png" alt="Lottery Council for Culture and Art" class="lottery-logo">
+            <p class="acknowledgment-text">
+                Music for Puppet Shows was produced with the assistance of the Lottery Council for Culture and Art
+            </p>
         </div>
     </div>
     </body>
